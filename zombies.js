@@ -192,16 +192,14 @@ Player.prototype.takeItem = function(item) {
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 Player.prototype.discardItem = function(item) {
-  console.log(this.getPack());
-  console.log(this.getPack().isArray());
-  var index = this.getPack.lastIndexOf(item);
-  console.log(typeof index);
-  if(index !== -1) {
-    this.getPack.splice(index,1);
-    return true;
-  } else {
+  var index = this.getPack().indexOf(item);
+  if(index === -1) {
     console.log("Item " + item.name + " could not be found, so could not be removed.");
     return false;
+  } else {
+    console.log("Item " + item.name + " found, and was removed.");
+    this.getPack().splice(index,1);
+    return true;
   }
 };
 
