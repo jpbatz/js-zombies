@@ -125,9 +125,11 @@ function Player(name, health, strength, speed) {
 Player.prototype.checkPack = function() {
   var pack = this.getPack();
   console.log("Contents of pack:");
-  console.log(typeof pack);
+  // console.log(typeof pack);
+  // console.log(pack.isArray);
+  // console.log(pack);
   for(var i=0; i<pack.length; i++) {
-    console.log("Item[" + i + "] = " + pack[i]);
+    console.log("Item[" + i + "] = " + pack[i]); // not getting here, problem with pack.length?
   }
   return pack;
 };
@@ -193,8 +195,8 @@ Player.prototype.discardItem = function(item) {
   console.log(this.getPack());
   console.log(this.getPack().isArray());
   var index = this.getPack.lastIndexOf(item);
-  console.log(index);
-  if(index) {
+  console.log(typeof index);
+  if(index !== -1) {
     this.getPack.splice(index,1);
     return true;
   } else {
