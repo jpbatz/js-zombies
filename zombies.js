@@ -35,7 +35,7 @@ function Weapon(name, damage) {
  * Weapon Extends Item Class
  * -----------------------------
  */
-Weapon.prototype = Object.create(Item, {
+Weapon.prototype = Object.create(Item.prototype, {
   constructor: {
     value: Item
   }
@@ -58,7 +58,7 @@ Weapon.prototype = Object.create(Item, {
  * @property {number} energy
  */
 function Food(name, energy) {
-  this.energy;
+  this.energy = energy;
   Item.call(this, name);
 }
 
@@ -66,7 +66,7 @@ function Food(name, energy) {
  * Food Extends Item Class
  * -----------------------------
  */
-Food.prototype = Object.create(Item, {
+Food.prototype = Object.create(Item.prototype, {
   constructor: {
     value: Item
   }
@@ -105,10 +105,10 @@ function Player(name, health, strength, speed) {
   this.equipped = false;      // default is not equipped
   this.getPack = function() {
     return _pack;
-  }
+  };
   this.getMaxHealth = function() {
     return _maxHealth;
-  }
+  };
 }
 
 /**
@@ -124,7 +124,7 @@ function Player(name, health, strength, speed) {
  */
 Player.prototype.checkPack = function() {
   
-}
+};
 
 /**
  * Player Class Method => takeItem(item)
@@ -145,7 +145,7 @@ Player.prototype.checkPack = function() {
  */
 Player.prototype.takeItem = function(item) {
   
-}
+};
 
 /**
  * Player Class Method => discardItem(item)
@@ -174,7 +174,7 @@ Player.prototype.takeItem = function(item) {
  */
 Player.prototype.discardItem = function(item) {
   
-}
+};
 
 /**
  * Player Class Method => equip(itemToEquip)
@@ -197,7 +197,7 @@ Player.prototype.discardItem = function(item) {
  */
 Player.prototype.equip = function (itemToEquip) {
   // body...
-}
+};
 
 /**
  * Player Class Method => eat(itemToEat)
@@ -219,7 +219,7 @@ Player.prototype.equip = function (itemToEquip) {
  */
 Player.prototype.eat = function (itemToEat) {
   // body...
-}
+};
 
 /**
  * Player Class Method => useItem(item)
@@ -235,7 +235,7 @@ Player.prototype.eat = function (itemToEat) {
  */
 Player.prototype.useItem = function (item) {
   // body...
-}
+};
 
 /**
  * Player Class Method => equippedWith()
@@ -252,7 +252,7 @@ Player.prototype.useItem = function (item) {
  */
 Player.prototype.equippedWith = function () {
   // body...
-}
+};
 
 /**
  * Class => Zombie(health, strength, speed)
@@ -299,7 +299,7 @@ function FastZombie(health, strength, speed) {
  * FastZombie Extends Zombie Class
  * -----------------------------
  */
-FastZombie.prototype = Object.create(Zombie, {
+FastZombie.prototype = Object.create(Zombie.prototype, {
   constructor: {
     value: Zombie
   }
@@ -328,7 +328,7 @@ function StrongZombie(health, strength, speed) {
  * StrongZombie Extends Zombie Class
  * -----------------------------
  */
-StrongZombie.prototype = Object.create(Zombie, {
+StrongZombie.prototype = Object.create(Zombie.prototype, {
   constructor: {
     value: Zombie
   }
@@ -349,7 +349,7 @@ StrongZombie.prototype = Object.create(Zombie, {
  * @param {number} strength         The zombie's strength.
  * @param {number} speed            The zombie's speed.
  */
-function RagedZombie(health, strength, speed) {
+function RangedZombie(health, strength, speed) {
   Zombie.call(this, health, strength, speed);
 }
 
@@ -357,7 +357,7 @@ function RagedZombie(health, strength, speed) {
  * StrongZombie Extends Zombie Class
  * -----------------------------
  */
-RagedZombie.prototype = Object.create(Zombie, {
+RangedZombie.prototype = Object.create(Zombie.prototype, {
   constructor:  {
     value: Zombie
   }
@@ -386,7 +386,7 @@ RagedZombie.prototype = Object.create(Zombie, {
  * ExplodingZombie Extends Zombie Class
  * -----------------------------
  */
-ExplodingZombie.prototype = Object.create(Zombie, {
+ExplodingZombie.prototype = Object.create(Zombie.prototype, {
   constructor: {
     value: Zombie
   }
