@@ -125,9 +125,6 @@ function Player(name, health, strength, speed) {
 Player.prototype.checkPack = function() {
   var pack = this.getPack();
   console.log("Contents of pack:");
-  // console.log(typeof pack);
-  // console.log(pack.isArray);
-  // console.log(pack);
   for(var i=0; i<pack.length; i++) {
     console.log("Item[" + i + "] = " + pack[i]); // not getting here, problem with pack.length?
   }
@@ -152,7 +149,6 @@ Player.prototype.checkPack = function() {
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
 Player.prototype.takeItem = function(item) {
-
   console.log("Number of items in the pack: " + this.getPack().length);
   if(this.getPack().length < 3) {
     console.log("Player: " + this.name + ", Item: " + item.name);
@@ -163,7 +159,6 @@ Player.prototype.takeItem = function(item) {
     console.log("The pack is full, so item could not be stored");
     return false;
   }
-
 };
 
 /**
@@ -261,8 +256,8 @@ Player.prototype.eat = function (itemToEat) {
   var pack = this.getPack();
   var foodIndex = pack.indexOf(itemToEat);
   if(itemToEat instanceof Food && foodIndex != -1 ) {
-      pack.splice(foodIndex,1);
-      this.health += itemToEat.energy;
+    pack.splice(foodIndex,1);
+    this.health += itemToEat.energy;
     if(this.health > this.getMaxHealth()) {
       this.health = this.getMaxHealth();
     }
@@ -312,7 +307,7 @@ Player.prototype.equippedWith = function () {
   }
 };
 
-/**
+/** 
  * Class => Zombie(health, strength, speed)
  * -----------------------------
  * Creates a normal zombie.
